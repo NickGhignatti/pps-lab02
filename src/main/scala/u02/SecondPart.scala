@@ -1,6 +1,7 @@
 package u02
 
 import scala.language.postfixOps
+import scala.quoted.Expr
 
 case object SecondPart extends App:
 
@@ -29,3 +30,9 @@ case object SecondPart extends App:
 
     def composeTree[A, B, C, D](f: C => D, g: B => C, h: A => B): A => D = (value: A) => f(g(h(value)))
 
+    def power(base: Double, exponent: Int): Double =
+        @annotation.tailrec
+        def _power(base: Double, exponent: Int, accumulator: Double): Double = exponent match
+            case 0 => accumulator
+            case n if (n > 0 ) => _power(base, n - 1, base * accumulator)
+        _power(base, exponent, 1.0)

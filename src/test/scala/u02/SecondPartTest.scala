@@ -37,3 +37,6 @@ class SecondPartTest:
 
     @Test def testComposeTree(): Unit =
         assertEquals("6!", SecondPart.composeTree[Int, Int, String, String](_ + "!", _.toString, _ * 2)(3))
+
+    @Test def testRecursivePower(): Unit =
+        assertTrue(8.0 == SecondPart.power(2.0, 3))
