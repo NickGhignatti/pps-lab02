@@ -1,7 +1,6 @@
 package u02
 
 import scala.language.postfixOps
-import scala.quoted.Expr
 
 case object SecondPart extends App:
 
@@ -36,3 +35,10 @@ case object SecondPart extends App:
             case 0 => accumulator
             case n if (n > 0 ) => _power(base, n - 1, base * accumulator)
         _power(base, exponent, 1.0)
+
+    def reverseDigits(digits: Int): Int =
+        @annotation.tailrec
+        def _reverse(digits: Int, accumulator: Int): Int = digits match
+            case 0 => accumulator
+            case _ => _reverse(digits / 10, accumulator * 10 + digits % 10)
+        _reverse(digits / 10, digits % 10)

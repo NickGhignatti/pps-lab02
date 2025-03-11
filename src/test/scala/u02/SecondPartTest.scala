@@ -40,3 +40,6 @@ class SecondPartTest:
 
     @Test def testRecursivePower(): Unit =
         assertTrue(8.0 == SecondPart.power(2.0, 3))
+
+    @Test def testReverseDigits(): Unit =
+        assertEquals(54321, SecondPart.reverseDigits(12345));
